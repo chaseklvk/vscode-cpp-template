@@ -1,0 +1,32 @@
+{
+  "files.associations": {
+    "__config": "cpp",
+    "cstddef": "cpp",
+    "exception": "cpp",
+    "initializer_list": "cpp",
+    "new": "cpp",
+    "stdexcept": "cpp",
+    "typeinfo": "cpp",
+    "string": "cpp",
+    "memory": "cpp",
+    "utility": "cpp",
+    "iterator": "cpp",
+    "*.tcc": "cpp",
+    "cctype": "cpp",
+    "clocale": "cpp",
+    "cmath": "cpp",
+    "cstdarg": "cpp",
+    "cstdio": "cpp",
+    "cstdlib": "cpp",
+    "cstring": "cpp",
+    "ctime": "cpp",
+    "cwchar": "cpp",
+    "cwctype": "cpp",
+    "iosfwd": "cpp",
+    "iostream": "cpp",
+    "istream": "cpp",
+    "limits": "cpp",
+    "ostream": "cpp",
+    "streambuf": "cpp"
+  }
+}
