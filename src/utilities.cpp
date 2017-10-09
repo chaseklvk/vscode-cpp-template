@@ -56,7 +56,7 @@ void clearCIN(void) {
 //
 //Input a string to be returned to the calling function.
 //
-string inputString(string promptString, int minLength, int maxLength) {
+string inputString(string promptString, unsigned long minLength, unsigned long maxLength) {
     string userInput;
     
     while (true) {
