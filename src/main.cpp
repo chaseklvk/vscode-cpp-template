@@ -23,6 +23,7 @@ int main() {
   // This pair is for retrieving data from the map
   map<string, Investment*>::iterator investmentIterator;
 
+  #pragma region
   while (true) {
     string name = inputString("Investment Firm (-999 to quit): ", 2, 30);
 
@@ -40,9 +41,11 @@ int main() {
       cout << temp->name << " already exists, not inserted!" << endl;
     }
   }
+  #pragma endregion
 
   cout << endl;
 
+  #pragma region
   cout << setw(20) << left << "Account Number";
   cout << setw(24) << "Investment Firm";
   cout << setw(20) << right << fixed << "Current Value" << endl;
@@ -55,9 +58,11 @@ int main() {
     cout << setw(24) << investmentPair.second->name;
     cout << setw(20) << right << fixed << setprecision(2) << investmentPair.second->currentValue << endl;
   }
+  #pragma endregion
 
   cout << endl;
 
+  #pragma region  
   while (true) {
     string accountNum = inputString("Seach by Account Number (-999 to quit): ", 1, 6);
     if (accountNum == "-999") break;
@@ -81,7 +86,8 @@ int main() {
       cout << "Investment with account number \"" << accountNum << "\" does not exist." << endl << endl; 
     }
   }
-
+  #pragma endregion
+  
   cout << endl;
 
   for (pair<string, Investment*> investmentPair : investmentMap) {
