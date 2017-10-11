@@ -28,7 +28,9 @@ int main() {
 
     if (name == "-999") break; 
 
-    double currentVal = inputDouble("Current Value (-999 to quit): ", 1.00, 1000000000000.00, -999);
+    cout << endl;
+
+    double currentVal = inputDouble("Current Value: ", 1.00, 1000000000000.00, -999);
 
     Investment *temp = new Investment(getRandomString(6, 7), name, currentVal);
 
@@ -52,6 +54,32 @@ int main() {
     cout << setw(20) << left << investmentPair.first;
     cout << setw(24) << investmentPair.second->name;
     cout << setw(20) << right << fixed << setprecision(2) << investmentPair.second->currentValue << endl;
+  }
+
+  cout << endl;
+
+  while (true) {
+    string accountNum = inputString("Seach by Account Number (-999 to quit): ", 1, 6);
+    if (accountNum == "-999") break;
+
+    investmentIterator = investmentMap.find(accountNum);
+    if (investmentIterator != investmentMap.end()) {
+      cout << endl;
+      cout << setw(20) << left << "Account Number";
+      cout << setw(24) << "Investment Firm";
+      cout << setw(20) << right << fixed << "Current Value" << endl;
+      cout << setw(20) << left << "--------------";
+      cout << setw(24) << "----------------";
+      cout << setw(20) << right << fixed << "--------------" << endl;
+      cout << setw(20) << left << investmentMap[accountNum]->accountNumber;
+      cout << setw(24) << investmentMap[accountNum]->name;
+      cout << setw(20) << right << fixed << setprecision(2) << investmentMap[accountNum]->currentValue << endl;
+
+      cout << endl;
+    } else {
+      cout << endl;
+      cout << "Investment with account number \"" << accountNum << "\" does not exist." << endl << endl; 
+    }
   }
 
   cout << endl;

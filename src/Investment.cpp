@@ -14,5 +14,5 @@ Investment::Investment(std::string accountNum, std::string name, double current)
 }
 
 Investment::~Investment() {
-  std::cout << "Deleting investment" << std::endl;
+  std::cout << "Deleting investment \"" << this->accountNumber << "\""<< std::endl;
 }
