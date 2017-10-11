@@ -109,7 +109,7 @@ int inputInt(string promptString, int minValue, int maxValue, int exitValue) {
 //Input a double value to be returned to the calling function.  Also, validate the
 //the minimum and maximum value of the double input.
 //
-double inputDouble(string promptString, unsigned long minValue, unsigned long maxValue, double exitValue) {
+double inputDouble(string promptString, unsigned long minValue, unsigned long maxValue, int exitValue) {
     double userInput;
     
     cout << promptString << " \n";
