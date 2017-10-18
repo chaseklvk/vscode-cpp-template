@@ -3,7 +3,7 @@ Template for CS20 C++ Projects in VSCode
 Place all .cpp files in the src directory
 Place all .hpp files in the include directory
 
-Follow these instructions to download CMake: https://cmake.org/install/
+Follow these instructions to install CMake: https://cmake.org/install/
 Once installed, run the following commands from the top level directory (Mac only):
 ```{r, engine='bash', count_lines}
 mkdir Debug
