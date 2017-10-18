@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")
 # make will print commands before running
 # set(CMAKE_VERBOSE_MAKEFILE on)
 
-# Bring the headers, such as Student.h into the project
+# Bring the headers, such as utlities.hpp into the project
 include_directories(include)
 
 # However, the file(GLOB...) allows for wildcard additions:
