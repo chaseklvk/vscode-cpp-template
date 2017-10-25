@@ -9,6 +9,7 @@
 //*****************
 #include <iostream>
 #include "utilities.hpp"
+#include "TreeNode.hpp"
 using namespace std;
 
 int main() {

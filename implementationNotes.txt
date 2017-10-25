@@ -1,0 +1,32 @@
+bool delete(TreeNode*, value);
+
+1) Is the rootNode null?
+  not found, return false
+
+2) Is the value equal root value?
+  2.1) Is the root left and right null?
+    delete root
+    return true
+  2.2) Is the root right not null?
+    save the left (leftNode)
+    save the right (rightNode)
+    delete root
+    root = rightNode
+    addNode(root, leftNode)
+    return false
+  2.3) Is the root left not null?
+    save the left (leftNode)
+    delete root
+    root = leftNode
+    return false
+3) Is the value less than the root value?
+  delete(TreeNode->left, value)
+  if return is true
+    TreeNode->left = nullptr
+  return false
+
+4) Is the value greater than the root value?
+  delete(TreeNode->right, value)
+  if return is true
+    TreeNode->right = nullptr
+  return false
