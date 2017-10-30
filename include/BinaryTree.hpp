@@ -42,7 +42,7 @@ private:
 
     //** You need to implement these functions
     int calculateHeight(TreeNode*);
-    int calculateBalance(TreeNode* );
+    int calculateBalance(TreeNode*);
     int getLargestBF(TreeNode*);
 
 }; //BinaryTree

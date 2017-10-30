@@ -195,25 +195,74 @@ void BinaryTree::clearTree(TreeNode* &rootNode) {
 //Private function which calculates the balance factor of a node and its branches/leafs.
 //Called by isInBalance
 int BinaryTree::calculateBalance(TreeNode* rootNode) {
+    // If the function is passed nullptr, return zero 
+    if (rootNode == nullptr) return 0;
+    
+    // Set the balance factor of the current node to the height of the left - the height of the right
+    // This calculation itself will not be accurate because we are calculating the height of the left and right subtrees
+    rootNode->BalanceFactor = calculateHeight(rootNode->Left) - calculateHeight(rootNode->Right);
+    
+    // If the node has a left child, add one to the balance factor to compensate for above calculation
+    if (hasLeftChild(rootNode))
+        rootNode->BalanceFactor += 1;
+    
+    // Similarly, subtract one from the balance factor if there is a right child
+    if (hasRightChild(rootNode))
+        rootNode->BalanceFactor -= 1;
 
-	//You need to code this function
-
+    // Calculate the balance for the left and right nodes
+    calculateBalance(rootNode->Left);
+    calculateBalance(rootNode->Right);
+    return 0;   // Return zero... This should probably be a void function?
 }//calculateBalance
 
 //
 //Private function returning the balance factor of a particular node.  Called by isInBalance
 int BinaryTree::calculateHeight(TreeNode* rootNode) {
+    // Define variables to store the left and right heights
+    int leftHeight = 0; 
+    int rightHeight = 0;
 
-	//You need to code this function
+    // If the current node is a leaf, the height is zero by definition
+    if (isLeaf(rootNode)) return 0;
+    
+    // If the current node has a left child, calculate the height of the child and add one to the count
+    if (hasLeftChild(rootNode))
+        leftHeight = calculateHeight(rootNode->Left) + 1;
 
+    // if the current node has a right child, calculate the height of the child and add one to the count
+    if (hasRightChild(rootNode))
+        rightHeight = calculateHeight(rootNode->Right) + 1;
+
+    // Return the height of the larger subtree
+    if (leftHeight > rightHeight)
+        return leftHeight;
+    else 
+        return rightHeight;
+    
 }//calculateHeight
 
 //
 //Private function which returns the largest balance factor in the tree.  Called by largestBF
 int BinaryTree::getLargestBF(TreeNode* rootNode) {
+    // If we are on a leaf or the rootNode is nullptr, the balance factor will be zero
+    if (rootNode == nullptr || isLeaf(rootNode)) return 0;
 
-	//You need to code this function
+    int currentBF = abs(rootNode->BalanceFactor);   // Store the absolute value of the current balance factor
+    int leftBF = getLargestBF(rootNode->Left);  // Grab the largest balance factor of the left subtree
+    int rightBF = getLargestBF(rootNode->Right);    // Grab the largest balance factor of the right subtree
 
+    // Store the absolute values of the balance factors for comparison
+    // New variables are created so the real balance factor can be returned for display
+    int absLBF = abs(leftBF);   
+    int absRBF = abs(rightBF);
+
+    // If the left/right balance factor is larger or equal to the right/left balance factor and the current balance factor, 
+    // it is the largest balance factor in the subtree
+    if (absLBF >= currentBF && absLBF >= absRBF) return leftBF;
+    else if (absRBF >= currentBF && absRBF >= absLBF) return rightBF;
+    else if (currentBF >= absLBF && currentBF >= absRBF) return rootNode->BalanceFactor; // If the current node's balance factor is larger than the left and right, it is the largest
+    else return 0; // Return zero to avoid infinite recursion if all cases fail
 }//getLargestBF
 
 //
